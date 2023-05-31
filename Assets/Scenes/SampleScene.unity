@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 309796774}
   - component: {fileID: 309796773}
   - component: {fileID: 309796775}
+  - component: {fileID: 309796776}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -343,6 +344,18 @@ MonoBehaviour:
   arPlaneManager: {fileID: 1836186075}
   centerPos: {x: 0.5, y: 0.5}
   temptext: {fileID: 1970023221}
+--- !u!114 &309796776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309796770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b312db12d24b41419faeeb7e1bcc988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &362279613
 GameObject:
   m_ObjectHideFlags: 0

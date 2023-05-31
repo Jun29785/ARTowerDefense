@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Pool;
 
 public class EnemyObject : MonoBehaviour
@@ -10,10 +11,13 @@ public class EnemyObject : MonoBehaviour
     private Vector3 direction;
 
     [SerializeField] [Range(0f,10f)] private float speed;
+    public int HP;
+
+    public UnityEvent hitEvent;
 
     void Start()
     {
-
+        hitEvent.AddListener(GetHit);
     }
 
     void Update()
@@ -22,6 +26,13 @@ public class EnemyObject : MonoBehaviour
 
         transform.Translate(direction * speed * Time.deltaTime);
     }
+
+    void GetHit()
+    {
+
+    }
+
+
 
     public void SetPool(IObjectPool<EnemyObject> pool)
     {
@@ -33,7 +44,6 @@ public class EnemyObject : MonoBehaviour
         if (collision.transform.CompareTag("Core"))
         {
             InGameManager.Instance.CoreCollision(this);
-
         }
     }
 }

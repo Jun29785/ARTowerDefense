@@ -49,6 +49,8 @@ public class RayManager : MonoBehaviour
                         if (hit.collider.CompareTag("Enemy"))
                         {
                             temptext.text = $"Name : {hit.transform.name}";
+                            hit.transform.TryGetComponent(out EnemyObject enemy);
+                            enemy.hitEvent.Invoke();
                         }
                     }
                     break;
