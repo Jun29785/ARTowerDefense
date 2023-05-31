@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;  
 using TMPro;
 
 public class RayManager : MonoBehaviour
@@ -23,13 +24,13 @@ public class RayManager : MonoBehaviour
         if(Input.touchCount > 0) {
             Touch touch = Input.GetTouch(0);
             Vector2 screenCenterPos = main.ViewportToScreenPoint(touch.position);
-            if (arRaycastManager.Raycast(screenCenterPos, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
+            if (arRaycastManager.Raycast(screenCenterPos, hits, TrackableType.PlaneWithinPolygon))
             {
                 if (hits.Count > 0)
                 {
                     // compare object
                     Debug.Log($"{hits[0].trackable}");
-                    temptext.text = $"{hits[0].trackable}\n{hits[0].pose.position}\n{transform.position}";
+                    temptext.text = $"{hits[0].trackable}\n{hits[0].pose.position}\n{transform.position}\nName:{hits[0].trackable.name}";
                 }
             }
         }
