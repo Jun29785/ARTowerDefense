@@ -15,6 +15,9 @@ public class InGameManager : MonoBehaviour
     [SerializeField] private float curSpawnerDelay;
     [SerializeField] [Range(0f,10f)] private float maxSpawnerDuration;
 
+    [Header("Materials")]
+    public Material[] enemyColor;
+    
     private void Awake()
     {
         Instance = this;
