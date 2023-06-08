@@ -22,6 +22,8 @@ public class InGameManager : MonoBehaviour
     [Header("Game")]
     public bool isCoreBuild = false;
     public bool isWave = false;
+    public int maxHp;
+    public int currentHp = 10;
     public int playCoin;
     public MainCanvas canvas;
 
@@ -42,6 +44,7 @@ public class InGameManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) CoreBuild(new Vector3(-3, 2, 1));
+        canvas.gameUI.HPUpdate(maxHp, currentHp);
         if (isWave)
         {
             canvas.gameUI.TextUpdate(waveManager.currentWave, playCoin, waveManager.remainEnemy);
@@ -67,6 +70,7 @@ public class InGameManager : MonoBehaviour
         {
             spawner.position += Core.position;
         }
+        currentHp = maxHp;
         nextWave.Invoke();
     }
 

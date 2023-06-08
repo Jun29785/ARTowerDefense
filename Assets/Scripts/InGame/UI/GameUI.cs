@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameUI : MonoBehaviour
@@ -6,6 +7,7 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI waveText;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI remainEnemyText;
+    public Slider hpSlider;
 
     void Start()
     {
@@ -27,5 +29,12 @@ public class GameUI : MonoBehaviour
         waveText.text = $"Wave {wave}";
         coinText.text = $"¨Ï {coin}";
         remainEnemyText.text = $"³²Àº Àû : {remainEnemy}";
+    }
+
+    public void HPUpdate(int max, int current)
+    {
+        hpSlider.minValue = 0;
+        hpSlider.maxValue = max;
+        hpSlider.value = current;
     }
 }

@@ -35,6 +35,7 @@ public class EnemyObject : MonoBehaviour
 
         if (Vector3.Distance(transform.position, InGameManager.Instance.Core.position) <= 0.1f)
         {
+            Handheld.Vibrate();
             InGameManager.Instance.CoreCollision(this);
         }
     }
@@ -46,7 +47,6 @@ public class EnemyObject : MonoBehaviour
         mesh.material = InGameManager.Instance.enemyColor[hp];
         if (HP <= 0)
         {
-            Handheld.Vibrate();
             InGameManager.Instance.EnemyDie(this);
         }
     }

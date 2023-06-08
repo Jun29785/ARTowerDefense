@@ -886,6 +886,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ee5a53c070edd4146b06bc0f36c23f3a, type: 2}
   isCoreBuild: 0
   isWave: 0
+  maxHp: 10
+  currentHp: 0
   playCoin: 0
   canvas: {fileID: 1647575378}
   waveManager: {fileID: 309796777}
@@ -2032,7 +2034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1185458265
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2142,7 +2144,7 @@ GameObject:
   - component: {fileID: 1237402308}
   - component: {fileID: 1237402309}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: HPSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2209,7 +2211,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 2040549156}
   m_HandleRect: {fileID: 0}
@@ -2505,6 +2507,7 @@ MonoBehaviour:
   waveText: {fileID: 348795470}
   coinText: {fileID: 190476447}
   remainEnemyText: {fileID: 1960604984}
+  hpSlider: {fileID: 1237402309}
 --- !u!1 &1645518888
 GameObject:
   m_ObjectHideFlags: 0
