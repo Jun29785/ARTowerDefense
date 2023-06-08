@@ -41,12 +41,16 @@ public class InGameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) CoreBuild(Vector3.zero);
-        curSpawnerDelay += Time.deltaTime;
-        if (curSpawnerDelay>maxSpawnerDuration && isWave)
+        if (Input.GetKeyDown(KeyCode.Space)) CoreBuild(new Vector3(-3, 2, 1));
+        if (isWave)
         {
-            curSpawnerDelay = 0f;
-            EnemySpawn();
+            curSpawnerDelay += Time.deltaTime;
+            if (curSpawnerDelay > maxSpawnerDuration)
+            {
+                curSpawnerDelay = 0f;
+                EnemySpawn();
+            }
+
         }
     }
 
@@ -58,6 +62,10 @@ public class InGameManager : MonoBehaviour
         isCoreBuild = true;
         GetComponent<RayManager>().arPlaneManager.SetTrackablesActive(false);
         GetComponent<RayManager>().arPlaneManager.enabled = false;
+        foreach(Transform spawner in spawners)
+        {
+            spawner.position += Core.position;
+        }
         nextWave.Invoke();
     }
 

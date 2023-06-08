@@ -17,6 +17,11 @@ public class GameUI : MonoBehaviour
         
     }
 
+    public void GameUIActive(bool active)
+    {
+        gameObject.SetActive(active);
+    }
+
     public void TextUpdate(int wave, int coin, int remainEnemy)
     {
         waveText.text = $"Wave {wave}";
