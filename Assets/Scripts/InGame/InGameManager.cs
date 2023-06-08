@@ -55,6 +55,7 @@ public class InGameManager : MonoBehaviour
         core.transform.position = position;
         Core = core.transform;
         isCoreBuild = true;
+        GetComponent<RayManager>().arPlaneManager.SetTrackablesActive(false);
         nextWave.Invoke();
     }
 
