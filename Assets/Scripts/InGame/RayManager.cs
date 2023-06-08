@@ -49,11 +49,16 @@ public class RayManager : MonoBehaviour
 
                     if (Physics.Raycast(ray,out hit, 100))
                     {
-                        if (hit.collider.CompareTag("Enemy"))
+                        if (hit.collider.CompareTag("Enemy") && InGameManager.Instance.isWave)
                         {
                             //temptext.text = $"Name : {hit.transform.name}";
                             hit.transform.TryGetComponent(out EnemyObject enemy);
                             enemy.hitEvent.Invoke();
+                        }
+                        else if (hit.collider.CompareTag("Core") && !InGameManager.Instance.isWave)
+                        {
+                            // Open Core Tower Upgrade Menu
+                            
                         }
                     }
                     break;

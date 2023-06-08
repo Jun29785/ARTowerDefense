@@ -81,6 +81,7 @@ public class InGameManager : MonoBehaviour
         canvas.gameUI.GameUIActive(false);
         canvas.waveNotice.WaveNoticeActive(true);
         yield return new WaitForSeconds(1.5f);
+        waveManager.WaveInit();
         canvas.waveNotice.WaveNoticeActive(false);
         canvas.gameUI.GameUIActive(true);
         isWave = true;

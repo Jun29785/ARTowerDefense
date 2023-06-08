@@ -25,7 +25,7 @@ public class EnemyObject : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        mesh.material = InGameManager.Instance.enemyColor[HP%7];
     }
 
     void Update()
@@ -46,6 +46,7 @@ public class EnemyObject : MonoBehaviour
         mesh.material = InGameManager.Instance.enemyColor[hp];
         if (HP <= 0)
         {
+            Handheld.Vibrate();
             InGameManager.Instance.EnemyDie(this);
         }
     }
