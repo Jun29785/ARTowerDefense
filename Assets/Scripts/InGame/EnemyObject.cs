@@ -25,7 +25,7 @@ public class EnemyObject : MonoBehaviour
 
     private void OnEnable()
     {
-        HP = Random.Range(0, int.MaxValue);
+        HP = Random.Range(0, 7);
     }
 
     void Update()
