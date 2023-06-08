@@ -874,7 +874,7 @@ MonoBehaviour:
   - {fileID: 308940092}
   - {fileID: 369369574}
   curSpawnerDelay: 0
-  maxSpawnerDuration: 3.7
+  maxSpawnerDuration: 1.3
   enemyColor:
   - {fileID: 2100000, guid: 3e112416fceeac549a7091cf66ec4824, type: 2}
   - {fileID: 2100000, guid: 91da120e8f0776646a1cfdb8210c2336, type: 2}

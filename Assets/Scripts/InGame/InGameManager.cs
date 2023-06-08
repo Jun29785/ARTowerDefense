@@ -68,11 +68,14 @@ public class InGameManager : MonoBehaviour
 
     IEnumerator WaveStartAnimation()
     {
+        isWave = false;
         yield return new WaitForSeconds(3f);
+        isWave = true;
     }
 
     void WaveStart()
     {
+        
         currentWave++;
         StartCoroutine(WaveStartAnimation());
     }
