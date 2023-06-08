@@ -15,11 +15,11 @@ public class EnemyObject : MonoBehaviour
 
     public UnityEvent hitEvent;
 
-    private Renderer renderer;
+    private Renderer mesh;
 
     void Start()
     {
-        renderer = GetComponent<MeshRenderer>();
+        mesh = GetComponent<MeshRenderer>();
         hitEvent.AddListener(GetHit);
     }
 
@@ -38,7 +38,11 @@ public class EnemyObject : MonoBehaviour
     {
         HP--;
         int hp = (HP % 7); 
-        renderer.material = InGameManager.Instance.enemyColor[hp];
+        mesh.material = InGameManager.Instance.enemyColor[hp];
+        if (HP <= 0)
+        {
+            InGameManager.Instance.EnemyDie(transform);
+        }
     }
 
     public void SetPool(IObjectPool<EnemyObject> pool)

@@ -22,6 +22,7 @@ public class InGameManager : MonoBehaviour
     [Header("Game")]
     public bool isCoreBuild = false;
     public bool isWave = false;
+    public int playCoin;
     public MainCanvas canvas;
 
     [Header("Wave")]
@@ -76,6 +77,12 @@ public class InGameManager : MonoBehaviour
     void EnemySpawn()
     {
         spawners[Random.Range(0, spawners.Length)].GetComponent<EnemySpawner>().spawn.Invoke();
+    }
+
+    public void EnemyDie(Transform enemy)
+    {
+        Destroy(enemy.gameObject);
+        playCoin++;
     }
 
     public void CoreCollision(EnemyObject enemy)
