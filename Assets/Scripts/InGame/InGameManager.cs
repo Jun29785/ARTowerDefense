@@ -90,8 +90,10 @@ public class InGameManager : MonoBehaviour
     {
         isWave = false;
         canvas.gameUI.GameUIActive(false);
+        canvas.waveNotice.WaveNoticeText(waveManager.currentWave);
         canvas.waveNotice.WaveNoticeActive(true);
         yield return new WaitForSeconds(1.5f);
+        canvas.nextWaveButton.NextWaveActive(false);
         waveManager.WaveInit();
         canvas.waveNotice.WaveNoticeActive(false);
         canvas.gameUI.GameUIActive(true);
@@ -105,9 +107,8 @@ public class InGameManager : MonoBehaviour
         {
             foreach (Transform spawn in spawners)
                 spawn.position *= 1.2f;
-
         }
-            StartCoroutine(StartWave());
+        StartCoroutine(StartWave());
     }
 
     void EnemySpawn()
