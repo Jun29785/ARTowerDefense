@@ -26,7 +26,7 @@ public class InGameManager : MonoBehaviour
     public MainCanvas canvas;
 
     [Header("Wave")]
-    public int currentWave;
+    public WaveManager waveManager;
     public UnityEvent nextWave;
 
     private void Awake()
@@ -44,6 +44,7 @@ public class InGameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) CoreBuild(new Vector3(-3, 2, 1));
         if (isWave)
         {
+            canvas.gameUI.TextUpdate(waveManager.currentWave, playCoin, waveManager.remainEnemy);
             curSpawnerDelay += Time.deltaTime;
             if (curSpawnerDelay > maxSpawnerDuration)
             {
@@ -71,21 +72,24 @@ public class InGameManager : MonoBehaviour
 
     public void GameInitialize()
     {
-        currentWave = 0;
+        waveManager.currentWave = 0;
     }
 
-    IEnumerator WaveStartAnimation()
+    IEnumerator StartWave()
     {
         isWave = false;
-        yield return new WaitForSeconds(3f);
+        canvas.gameUI.GameUIActive(false);
+        canvas.waveNotice.WaveNoticeActive(true);
+        yield return new WaitForSeconds(1.5f);
+        canvas.waveNotice.WaveNoticeActive(false);
+        canvas.gameUI.GameUIActive(true);
         isWave = true;
     }
 
     void WaveStart()
     {
-        
-        currentWave++;
-        StartCoroutine(WaveStartAnimation());
+        waveManager.currentWave++;
+        StartCoroutine(StartWave());
     }
 
     void EnemySpawn()

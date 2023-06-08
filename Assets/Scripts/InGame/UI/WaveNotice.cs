@@ -8,7 +8,7 @@ public class WaveNotice : MonoBehaviour
 {
     public RawImage[] waveLine;
     public TextMeshProUGUI waveText;
-    public float scrollingSpeed = 2f;
+    //public float scrollingSpeed = 10f;
 
     void Start()
     {
@@ -17,14 +17,19 @@ public class WaveNotice : MonoBehaviour
 
     void Update()
     {
-        MoveLine(waveLine[0]);
-        MoveLine(waveLine[1]);
+        //MoveLine(waveLine[0]);
+        //MoveLine(waveLine[1]);
     }
 
-    void MoveLine(RawImage line)
+    public void WaveNoticeActive(bool active)
     {
-        line.uvRect = new Rect(line.uvRect.position + new Vector2(-scrollingSpeed, 0) * Time.deltaTime, line.uvRect.size);
+        gameObject.SetActive(active);
     }
+
+    //void MoveLine(RawImage line)
+    //{
+    //    line.uvRect = new Rect(line.uvRect.position + new Vector2(-scrollingSpeed, 0) * Time.deltaTime, line.uvRect.size);
+    //}
 
     public void WaveNoticeText(int wave)
     {
