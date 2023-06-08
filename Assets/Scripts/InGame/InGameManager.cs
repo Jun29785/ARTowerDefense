@@ -47,9 +47,15 @@ public class InGameManager : MonoBehaviour
         canvas.gameUI.HPUpdate(maxHp, currentHp);
         if (isWave)
         {
+            if (waveManager.remainEnemy <= 0 && objectSpawnManager.enemyObjParent.childCount == 0)
+            {
+                isWave = false;
+                canvas.nextWaveButton.NextWaveActive(true);
+            }
             canvas.gameUI.TextUpdate(waveManager.currentWave, playCoin, waveManager.remainEnemy);
+            
             curSpawnerDelay += Time.deltaTime;
-            if (curSpawnerDelay > maxSpawnerDuration)
+            if (curSpawnerDelay > maxSpawnerDuration && waveManager.remainEnemy > 0)
             {
                 curSpawnerDelay = 0f;
                 EnemySpawn();
@@ -70,13 +76,14 @@ public class InGameManager : MonoBehaviour
         {
             spawner.position += Core.position;
         }
-        currentHp = maxHp;
+        GameInitialize();
         nextWave.Invoke();
     }
 
     public void GameInitialize()
     {
         waveManager.currentWave = 0;
+        currentHp = maxHp;
     }
 
     IEnumerator StartWave()
@@ -94,11 +101,18 @@ public class InGameManager : MonoBehaviour
     void WaveStart()
     {
         waveManager.currentWave++;
-        StartCoroutine(StartWave());
+        if (waveManager.currentWave % 5 == 0)
+        {
+            foreach (Transform spawn in spawners)
+                spawn.position *= 1.2f;
+
+        }
+            StartCoroutine(StartWave());
     }
 
     void EnemySpawn()
     {
+        waveManager.remainEnemy--;
         spawners[Random.Range(0, spawners.Length)].GetComponent<EnemySpawner>().spawn.Invoke();
     }
 

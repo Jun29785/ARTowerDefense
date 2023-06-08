@@ -10,7 +10,7 @@ public class EnemyObject : MonoBehaviour
 
     private Vector3 direction;
 
-    [SerializeField] [Range(0f, 10f)] private float speed;
+    [Range(0f, 10f)] public float speed;
     private int hp;
     public int HP { get { return hp; } set { hp = value; mesh.material = InGameManager.Instance.enemyColor[HP % 7]; } } 
 

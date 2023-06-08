@@ -850,8 +850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8583122051019592705, guid: a617fa2edb8569c4bb3c72fd48370e19, type: 3}
-  enemyObjParent: {fileID: 0}
-  targetTrans: {fileID: 0}
+  enemyObjParent: {fileID: 602887126}
   poolSize: 30
   spawnRange: 5
 --- !u!114 &309796774
@@ -909,7 +908,6 @@ MonoBehaviour:
   arRaycastManager: {fileID: 1836186079}
   arPlaneManager: {fileID: 1836186075}
   centerPos: {x: 0.5, y: 0.5}
-  temptext: {fileID: 0}
 --- !u!114 &309796776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1512,6 +1510,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450291335}
   m_CullTransparentMesh: 1
+--- !u!1 &602887125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 602887126}
+  m_Layer: 0
+  m_Name: EnemyParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &602887126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602887125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,7 +2063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1185458265
 RectTransform:
   m_ObjectHideFlags: 0

@@ -13,7 +13,6 @@ public class RayManager : MonoBehaviour
     Camera main;
     public Vector2 centerPos = new Vector2(.5f, .5f);
     public List<ARRaycastHit> hits = new List<ARRaycastHit>();
-    public TextMeshProUGUI temptext;
 
     void Start()
     {
