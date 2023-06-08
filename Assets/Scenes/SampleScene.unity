@@ -885,6 +885,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ee5a53c070edd4146b06bc0f36c23f3a, type: 2}
   isCoreBuild: 0
   isWave: 0
+  playCoin: 0
   canvas: {fileID: 1647575378}
   currentWave: 0
   nextWave:

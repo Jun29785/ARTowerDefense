@@ -41,6 +41,7 @@ public class InGameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space)) CoreBuild(Vector3.zero);
         curSpawnerDelay += Time.deltaTime;
         if (curSpawnerDelay>maxSpawnerDuration && isWave)
         {
@@ -56,7 +57,7 @@ public class InGameManager : MonoBehaviour
         Core = core.transform;
         isCoreBuild = true;
         GetComponent<RayManager>().arPlaneManager.SetTrackablesActive(false);
-        GetComponent<RayManager>().enabled = false;
+        GetComponent<RayManager>().arPlaneManager.enabled = false;
         nextWave.Invoke();
     }
 
