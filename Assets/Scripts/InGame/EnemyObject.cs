@@ -10,8 +10,9 @@ public class EnemyObject : MonoBehaviour
 
     private Vector3 direction;
 
-    [SerializeField] [Range(0f,10f)] private float speed;
-    public int HP;
+    [SerializeField] [Range(0f, 10f)] private float speed;
+    private int hp;
+    public int HP { get { return hp; } set { hp = value; mesh.material = InGameManager.Instance.enemyColor[HP % 7]; } } 
 
     public UnityEvent hitEvent;
 
@@ -25,7 +26,6 @@ public class EnemyObject : MonoBehaviour
 
     private void OnEnable()
     {
-        mesh.material = InGameManager.Instance.enemyColor[HP%7];
     }
 
     void Update()
@@ -43,8 +43,6 @@ public class EnemyObject : MonoBehaviour
     void GetHit()
     {
         HP--;
-        int hp = (HP % 7); 
-        mesh.material = InGameManager.Instance.enemyColor[hp];
         if (HP <= 0)
         {
             InGameManager.Instance.EnemyDie(this);
