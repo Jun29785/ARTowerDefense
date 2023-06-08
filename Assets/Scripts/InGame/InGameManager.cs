@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.Pool;
 public class InGameManager : MonoBehaviour
 {
     public static InGameManager Instance;
@@ -97,9 +97,9 @@ public class InGameManager : MonoBehaviour
         spawners[Random.Range(0, spawners.Length)].GetComponent<EnemySpawner>().spawn.Invoke();
     }
 
-    public void EnemyDie(Transform enemy)
+    public void EnemyDie(EnemyObject enemy)
     {
-        Destroy(enemy.gameObject);
+        objectSpawnManager.enemyPool.Release(enemy);
         playCoin++;
     }
 
