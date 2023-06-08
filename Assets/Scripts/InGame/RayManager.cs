@@ -14,6 +14,7 @@ public class RayManager : MonoBehaviour
     public Vector2 centerPos = new Vector2(.5f, .5f);
     public List<ARRaycastHit> hits = new List<ARRaycastHit>();
     public TextMeshProUGUI temptext;
+
     void Start()
     {
         main = Camera.main;
@@ -24,12 +25,12 @@ public class RayManager : MonoBehaviour
         if(Input.touchCount > 0) {
             Touch touch = Input.GetTouch(0);
 
-            Vector2 screenCenterPos = main.ViewportToScreenPoint(touch.position);
-            if (arRaycastManager.Raycast(screenCenterPos, hits, TrackableType.PlaneWithinPolygon))
+            //Vector2 screenCenterPos = main.ViewportToScreenPoint(touch.position);
+            if (arRaycastManager.Raycast(touch.position, hits, TrackableType.PlaneWithinPolygon))
             {
                 if (hits.Count > 0)
                 {
-                    if (!InGameManager.Instance.canvas.coreBuild.gameObject.activeSelf)
+                    if (!InGameManager.Instance.canvas.coreBuild.gameObject.activeSelf && !InGameManager.Instance.isCoreBuild)
                     {
                         InGameManager.Instance.canvas.coreBuild.ActiveWindow(hits[0].pose.position);
                     }
