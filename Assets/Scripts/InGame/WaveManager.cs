@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    [SerializeField] [Range(0, 100)] private int baseEnemy = 15;
+    [SerializeField] [Range(0, 100)] private int baseEnemy = 3;
     public int currentWave;
     public int remainEnemy;
 

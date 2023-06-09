@@ -6,7 +6,8 @@ using UnityEngine.Pool;
 public class ObjectSpawnManager : MonoBehaviour
 {
     [SerializeField] private EnemyObject enemyPrefab;
-    [SerializeField] public Transform enemyObjParent;
+    public Transform enemyObjParent;
+    [SerializeField] Transform enemyStore;
 
     public IObjectPool<EnemyObject> enemyPool;
     [SerializeField] [Range(0, 100)] private int poolSize=30;
@@ -39,6 +40,7 @@ public class ObjectSpawnManager : MonoBehaviour
     private void OnReleaseEnemy(EnemyObject enemy)
     {
         enemy.gameObject.SetActive(false);
+        enemy.transform.parent = enemyStore;
     }
 
     private void OnDestroyEnemy(EnemyObject enemy)

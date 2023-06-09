@@ -53,7 +53,7 @@ public class InGameManager : MonoBehaviour
                 canvas.gameUI.GameUIActive(false);
                 canvas.nextWaveButton.NextWaveActive(true);
             }
-            canvas.gameUI.TextUpdate(waveManager.currentWave, playCoin, waveManager.remainEnemy);
+            canvas.gameUI.TextUpdate(waveManager.currentWave, playCoin, objectSpawnManager.enemyObjParent.childCount);
             
             curSpawnerDelay += Time.deltaTime;
             if (curSpawnerDelay > maxSpawnerDuration && waveManager.remainEnemy > 0)
@@ -125,5 +125,6 @@ public class InGameManager : MonoBehaviour
     public void CoreCollision(EnemyObject enemy)
     {
         objectSpawnManager.enemyPool.Release(enemy);
+        currentHp--;
     }
 }
