@@ -12,15 +12,12 @@ public class EnemyObject : MonoBehaviour
 
     [Range(0f, 10f)] public float speed;
     private int hp;
-    public int HP { get { return hp; } set { hp = value; mesh.material = InGameManager.Instance.enemyColor[HP % 7]; } } 
+    public int HP { get { return hp; } set { hp = value; GetComponent<Renderer>().material = InGameManager.Instance.enemyColor[HP % 7]; } } 
 
     public UnityEvent hitEvent;
 
-    private Renderer mesh;
-
     void Start()
     {
-        mesh = GetComponent<MeshRenderer>();
         hitEvent.AddListener(GetHit);
     }
 

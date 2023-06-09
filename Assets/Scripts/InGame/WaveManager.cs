@@ -10,7 +10,7 @@ public class WaveManager : MonoBehaviour
 
     public void WaveInit()
     {
-        remainEnemy = baseEnemy * (currentWave/ 3);
+        remainEnemy = baseEnemy * ((currentWave/ 3) + 1);
     }
 
     void Start()

@@ -2102,7 +2102,7 @@ MonoBehaviour:
   waveLine:
   - {fileID: 155509036}
   - {fileID: 320474324}
-  waveText: {fileID: 0}
+  waveText: {fileID: 897032615}
 --- !u!114 &1185458267
 MonoBehaviour:
   m_ObjectHideFlags: 0

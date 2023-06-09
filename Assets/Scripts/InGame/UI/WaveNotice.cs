@@ -33,6 +33,6 @@ public class WaveNotice : MonoBehaviour
 
     public void WaveNoticeText(int wave)
     {
-        waveText.text = $"웨이브 : {wave}";
+        waveText.text = $"웨이브 {wave}";
     }
 }
