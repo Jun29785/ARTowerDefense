@@ -55,6 +55,7 @@ public class InGameManager : MonoBehaviour
                 isWave = false;
                 canvas.gameUI.GameUIActive(false);
                 canvas.nextWaveButton.NextWaveActive(true);
+                ARActive(true);
             }
             canvas.gameUI.TextUpdate(waveManager.currentWave, playCoin, objectSpawnManager.enemyObjParent.childCount);
             
@@ -74,8 +75,6 @@ public class InGameManager : MonoBehaviour
         core.transform.position = position;
         Core = core.transform;
         isCoreBuild = true;
-        GetComponent<RayManager>().arPlaneManager.SetTrackablesActive(false);
-        GetComponent<RayManager>().arPlaneManager.enabled = false;
         foreach(Transform spawner in spawners)
         {
             spawner.position += Core.position;
@@ -83,6 +82,12 @@ public class InGameManager : MonoBehaviour
         }
         GameInitialize();
         nextWave.Invoke();
+    }
+
+    void ARActive(bool active)
+    {
+        GetComponent<RayManager>().arPlaneManager.SetTrackablesActive(active);
+        GetComponent<RayManager>().arPlaneManager.enabled = active;
     }
 
     public void SubTowerBuild(Vector3 position)
@@ -111,6 +116,7 @@ public class InGameManager : MonoBehaviour
 
     void WaveStart()
     {
+        ARActive(false);
         waveManager.currentWave++;
         if (waveManager.currentWave % 5 == 0)
         {

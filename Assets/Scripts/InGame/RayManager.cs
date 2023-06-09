@@ -35,7 +35,7 @@ public class RayManager : MonoBehaviour
                     }
                     else if (!InGameManager.Instance.isWave && InGameManager.Instance.isCoreBuild)
                     {
-
+                        // SubTower
                     }
                 }
             }
