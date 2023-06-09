@@ -8,4 +8,5 @@ public class MainCanvas : MonoBehaviour
     public GameUI gameUI;
     public CoreBuild coreBuild;
     public NextWaveButton nextWaveButton;
+    public TowerBuild towerBuild;
 }

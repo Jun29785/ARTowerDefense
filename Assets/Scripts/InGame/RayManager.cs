@@ -14,9 +14,12 @@ public class RayManager : MonoBehaviour
     public Vector2 centerPos = new Vector2(.5f, .5f);
     public List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
+    private InGameManager inGameManager;
+
     void Start()
     {
         main = Camera.main;
+        inGameManager = InGameManager.Instance;
     }
 
     void Update()
@@ -29,13 +32,15 @@ public class RayManager : MonoBehaviour
             {
                 if (hits.Count > 0)
                 {
-                    if (!InGameManager.Instance.canvas.coreBuild.gameObject.activeSelf && !InGameManager.Instance.isCoreBuild)
+                    if (!inGameManager.canvas.coreBuild.gameObject.activeSelf && !inGameManager.isCoreBuild)
                     {
-                        InGameManager.Instance.canvas.coreBuild.ActiveWindow(hits[0].pose.position);
+                        inGameManager.canvas.coreBuild.ActiveWindow(hits[0].pose.position);
                     }
-                    else if (!InGameManager.Instance.isWave && InGameManager.Instance.isCoreBuild)
+                    else if (!inGameManager.isWave && inGameManager.isCoreBuild)
                     {
                         // SubTower
+                        inGameManager.canvas.towerBuild.towerPosition = hits[0].pose.position;
+                        inGameManager.canvas.towerBuild.TowerBuildActive(true);
                     }
                 }
             }
@@ -52,13 +57,13 @@ public class RayManager : MonoBehaviour
 
                     if (Physics.Raycast(ray,out hit, 100))
                     {
-                        if (hit.collider.CompareTag("Enemy") && InGameManager.Instance.isWave)
+                        if (hit.collider.CompareTag("Enemy") && inGameManager.isWave)
                         {
                             //temptext.text = $"Name : {hit.transform.name}";
                             hit.transform.TryGetComponent(out EnemyObject enemy);
                             enemy.hitEvent.Invoke();
                         }
-                        else if (hit.collider.CompareTag("Core") && !InGameManager.Instance.isWave)
+                        else if (hit.collider.CompareTag("Core") && !inGameManager.isWave)
                         {
                             // Open Core Tower Upgrade Menu
                             
