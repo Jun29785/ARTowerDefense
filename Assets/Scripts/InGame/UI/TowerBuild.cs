@@ -38,4 +38,9 @@ public class TowerBuild : MonoBehaviour
             inGameManager.SubTowerBuild(towerPosition);
         }
     }
+
+    public void OnClickNoButton()
+    {
+        TowerBuildActive(false);
+    }
 }
