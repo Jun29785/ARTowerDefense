@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public List<UserData> users;
 
+    public int maxSubTower = 3;
+
     private void Awake()
     {
         Instance = this;
