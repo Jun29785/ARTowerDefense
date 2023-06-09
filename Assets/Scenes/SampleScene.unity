@@ -869,6 +869,8 @@ MonoBehaviour:
   objectSpawnManager: {fileID: 309796773}
   Core: {fileID: 0}
   CorePrefab: {fileID: 8494615861762611116, guid: b57428c5ba941404fa24e04453362bfa, type: 3}
+  SubtowerPrefab: {fileID: 7142365741533385630, guid: 8a685cf58abce8d4e88bcb705438e841, type: 3}
+  bulletPrefab: {fileID: 5624119988228597725, guid: c8936c41d7beade4c9959a4dcae20b4f, type: 3}
   spawners:
   - {fileID: 1645518889}
   - {fileID: 411184791}
@@ -889,6 +891,7 @@ MonoBehaviour:
   maxHp: 10
   currentHp: 0
   playCoin: 0
+  subTower: 0
   canvas: {fileID: 1647575378}
   waveManager: {fileID: 309796777}
   nextWave:
@@ -933,7 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b2f62db33d2db4286474b9329cc179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseEnemy: 12
+  baseEnemy: 1
   currentWave: 0
   remainEnemy: 0
 --- !u!1 &320474322

@@ -33,6 +33,10 @@ public class RayManager : MonoBehaviour
                     {
                         InGameManager.Instance.canvas.coreBuild.ActiveWindow(hits[0].pose.position);
                     }
+                    else if (!InGameManager.Instance.isWave && InGameManager.Instance.isCoreBuild)
+                    {
+
+                    }
                 }
             }
 

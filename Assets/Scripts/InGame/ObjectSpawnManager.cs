@@ -52,7 +52,7 @@ public class ObjectSpawnManager : MonoBehaviour
     public void SpawnEnemy(Transform spawner)
     {
         var enemy = enemyPool.Get();
-        Vector3 pos = new Vector3(spawner.position.x + Random.Range(-spawnRange, spawnRange), spawner.position.y + Random.Range(-(spawnRange/2), (spawnRange/2)), spawner.position.z + Random.Range(-spawnRange, spawnRange));
+        Vector3 pos = new Vector3(spawner.position.x + Random.Range(-spawnRange, spawnRange), spawner.position.y + Random.Range(-(spawnRange), (spawnRange)), spawner.position.z + Random.Range(-spawnRange, spawnRange));
         enemy.transform.position = pos;
         enemy.transform.parent = enemyObjParent;
         enemy.speed = ((InGameManager.Instance.waveManager.currentWave / 5) + 1) * baseEnemySpeed;

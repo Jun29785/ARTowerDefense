@@ -11,7 +11,7 @@ public class EnemyObject : MonoBehaviour
     private Vector3 direction;
 
     [Range(0f, 10f)] public float speed;
-    private int hp;
+    [SerializeField] private int hp;
     public int HP { get { return hp; } set { hp = value; GetComponent<Renderer>().material = InGameManager.Instance.enemyColor[HP % 7]; } } 
 
     public UnityEvent hitEvent;

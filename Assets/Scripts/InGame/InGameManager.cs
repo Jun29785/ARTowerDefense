@@ -10,6 +10,8 @@ public class InGameManager : MonoBehaviour
     public ObjectSpawnManager objectSpawnManager;
     public Transform Core;
     public GameObject CorePrefab;
+    public GameObject SubtowerPrefab;
+    public GameObject bulletPrefab;
 
     [Header("Spawner")]
     [SerializeField] private Transform[] spawners;
@@ -25,6 +27,7 @@ public class InGameManager : MonoBehaviour
     public int maxHp;
     public int currentHp = 10;
     public int playCoin;
+    public int subTower;
     public MainCanvas canvas;
 
     [Header("Wave")]
@@ -76,9 +79,16 @@ public class InGameManager : MonoBehaviour
         foreach(Transform spawner in spawners)
         {
             spawner.position += Core.position;
+            spawner.position = new Vector3(spawner.position.x, Core.position.y, spawner.position.z);
         }
         GameInitialize();
         nextWave.Invoke();
+    }
+
+    public void SubTowerBuild(Vector3 position)
+    {
+        GameObject subTower = Instantiate(SubtowerPrefab);
+        subTower.transform.position = position;
     }
 
     public void GameInitialize()
@@ -108,6 +118,14 @@ public class InGameManager : MonoBehaviour
                 spawn.position *= 1.2f;
         }
         StartCoroutine(StartWave());
+    }
+
+    public void SubTowerAttack(Transform tower)
+    {
+        GameObject obj = Instantiate(bulletPrefab);
+        obj.transform.position = tower.position;
+        obj.TryGetComponent<Bullet>(out Bullet bullet);
+        bullet.target = tower.GetComponent<SubTower>().targetEnemy;
     }
 
     void EnemySpawn()
