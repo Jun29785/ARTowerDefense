@@ -50,6 +50,7 @@ public class InGameManager : MonoBehaviour
             if (waveManager.remainEnemy <= 0 && objectSpawnManager.enemyObjParent.childCount == 0)
             {
                 isWave = false;
+                canvas.gameUI.GameUIActive(false);
                 canvas.nextWaveButton.NextWaveActive(true);
             }
             canvas.gameUI.TextUpdate(waveManager.currentWave, playCoin, waveManager.remainEnemy);
@@ -88,8 +89,6 @@ public class InGameManager : MonoBehaviour
 
     IEnumerator StartWave()
     {
-        isWave = false;
-        canvas.gameUI.GameUIActive(false);
         canvas.waveNotice.WaveNoticeText(waveManager.currentWave);
         canvas.waveNotice.WaveNoticeActive(true);
         yield return new WaitForSeconds(1.5f);
