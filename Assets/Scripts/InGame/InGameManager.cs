@@ -16,7 +16,7 @@ public class InGameManager : MonoBehaviour
     [Header("Spawner")]
     [SerializeField] private Transform[] spawners;
     [SerializeField] private float curSpawnerDelay;
-    [SerializeField] [Range(0f,10f)] private float maxSpawnerDuration;
+    [SerializeField] [Range(0f, 10f)] private float maxSpawnerDuration;
 
     [Header("Materials")]
     public Material[] enemyColor;
@@ -27,7 +27,7 @@ public class InGameManager : MonoBehaviour
     public int maxHp;
     public int currentHp = 10;
     public int playCoin;
-    public int subTower;
+    public int subTowerCount;
     public MainCanvas canvas;
 
     [Header("Wave")]
@@ -58,7 +58,7 @@ public class InGameManager : MonoBehaviour
                 ARActive(true);
             }
             canvas.gameUI.TextUpdate(waveManager.currentWave, playCoin, objectSpawnManager.enemyObjParent.childCount);
-            
+
             curSpawnerDelay += Time.deltaTime;
             if (curSpawnerDelay > maxSpawnerDuration && waveManager.remainEnemy > 0)
             {
@@ -75,7 +75,7 @@ public class InGameManager : MonoBehaviour
         core.transform.position = position;
         Core = core.transform;
         isCoreBuild = true;
-        foreach(Transform spawner in spawners)
+        foreach (Transform spawner in spawners)
         {
             spawner.position += Core.position;
             spawner.position = new Vector3(spawner.position.x, Core.position.y, spawner.position.z);
@@ -84,21 +84,23 @@ public class InGameManager : MonoBehaviour
         nextWave.Invoke();
     }
 
+    public void SubTowerBuild(Vector3 position)
+    {
+        GameObject subTower = Instantiate(SubtowerPrefab);
+        subTower.transform.position = position;
+        subTowerCount++;
+    }
+
     void ARActive(bool active)
     {
         GetComponent<RayManager>().arPlaneManager.SetTrackablesActive(active);
         GetComponent<RayManager>().arPlaneManager.enabled = active;
     }
 
-    public void SubTowerBuild(Vector3 position)
-    {
-        GameObject subTower = Instantiate(SubtowerPrefab);
-        subTower.transform.position = position;
-    }
-
     public void GameInitialize()
     {
         waveManager.currentWave = 0;
+        subTowerCount = 0;
         currentHp = maxHp;
     }
 
