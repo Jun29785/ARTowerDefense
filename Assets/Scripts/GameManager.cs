@@ -6,7 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public List<UserData> users;
+    public SceneController sceneController;
+    public UserDataManager userDataManager;
+
+    public List<RankData> users;
 
     public int maxSubTower = 3;
 
@@ -17,17 +20,17 @@ public class GameManager : MonoBehaviour
     }
 }
 
-public class UserData
+public class RankData
 {
     public string Name;
     public int FinalWave;
 
-    public UserData()
+    public RankData()
     {
 
     }
 
-    public UserData(string name, int finalWave)
+    public RankData(string name, int finalWave)
     {
         Name = name;
         FinalWave = finalWave;
