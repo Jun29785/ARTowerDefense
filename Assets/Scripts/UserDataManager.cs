@@ -30,6 +30,11 @@ public class UserDataManager : MonoBehaviour
     }
 }
 
+[System.Serializable]
 public class UserData{
-
+    public List<RankData> ranks;
+    public int Coin;
+    public int UserHP;
+    public int ClickDamage;
+    public int SubTowerAmount;
 }

@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class LobbyUIManager : MonoBehaviour
 {
+    public static LobbyUIManager Instance;
+
     public LobbyCanvas canvas;
 
     void Start()
     {
-
+        Instance = this;
     }
 
     void Update()
@@ -23,7 +25,7 @@ public class LobbyUIManager : MonoBehaviour
 
     public void OnClickShopButton()
     {
-
+        canvas.shopManager.OpenShop();
     }
 
     public void OnClickRankButton()
