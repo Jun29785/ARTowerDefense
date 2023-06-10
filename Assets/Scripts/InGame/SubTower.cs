@@ -44,7 +44,7 @@ public class SubTower : MonoBehaviour
 
     void AttackFunc()
     {
-
+        InGameManager.Instance.SubTowerAttack(targetEnemy);
     }
 
     void GetTargetEnemy()

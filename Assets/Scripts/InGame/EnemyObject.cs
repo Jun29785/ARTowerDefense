@@ -39,7 +39,7 @@ public class EnemyObject : MonoBehaviour
 
     void GetHit()
     {
-        HP--;
+        HP -= GameManager.Instance.userDataManager.userData.ClickDamage;
         if (HP <= 0)
         {
             InGameManager.Instance.EnemyDie(this);

@@ -41,12 +41,14 @@ public class InGameManager : MonoBehaviour
 
     void Start()
     {
+        maxHp = GameManager.Instance.userDataManager.userData.UserHP * 5 + 5;
         nextWave.AddListener(WaveStart);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) CoreBuild(new Vector3(-3, 2, 1));
+        if (Input.GetKeyDown(KeyCode.S)) SubTowerBuild(new Vector3(-2, 2, 1));
         canvas.gameUI.HPUpdate(maxHp, currentHp);
         if (isWave)
         {
@@ -102,6 +104,7 @@ public class InGameManager : MonoBehaviour
         waveManager.currentWave = 0;
         subTowerCount = 0;
         currentHp = maxHp;
+        GameManager.Instance.maxSubTower = GameManager.Instance.userDataManager.userData.SubTowerAmount + 2;
     }
 
     IEnumerator StartWave()
