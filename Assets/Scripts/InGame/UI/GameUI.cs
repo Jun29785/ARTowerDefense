@@ -23,7 +23,7 @@ public class GameUI : MonoBehaviour
     {
         if (InGameManager.Instance.isCoreBuild)
             hpSlider.gameObject.SetActive(active);
-        gameObject.SetActive(active);
+        else gameObject.SetActive(active);
     }
 
     public void TextUpdate(int wave, int coin, int remainEnemy)
