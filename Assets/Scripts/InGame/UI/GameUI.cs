@@ -21,6 +21,8 @@ public class GameUI : MonoBehaviour
 
     public void GameUIActive(bool active)
     {
+        if (InGameManager.Instance.isCoreBuild)
+            hpSlider.gameObject.SetActive(active);
         gameObject.SetActive(active);
     }
 

@@ -3254,7 +3254,7 @@ MonoBehaviour:
   gameUI: {fileID: 1557780771}
   coreBuild: {fileID: 1284641548}
   nextWaveButton: {fileID: 1724276799}
-  towerBuild: {fileID: 0}
+  towerBuild: {fileID: 1857845050}
 --- !u!1 &1675022717
 GameObject:
   m_ObjectHideFlags: 0
