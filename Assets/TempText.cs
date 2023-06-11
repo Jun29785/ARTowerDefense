@@ -14,6 +14,6 @@ public class TempText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<TextMeshProUGUI>().text = InGameManager.Instance.subTowerCount.ToString();
+        GetComponent<TextMeshProUGUI>().text = $"{InGameManager.Instance.subTowerCount} / {GameManager.Instance.maxSubTower}";
     }
 }
