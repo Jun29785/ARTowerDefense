@@ -11,19 +11,18 @@ public class GameUI : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+
     }
 
     public void GameUIActive(bool active)
     {
-        if (InGameManager.Instance.isCoreBuild)
-            hpSlider.gameObject.SetActive(active);
-        else gameObject.SetActive(active);
+        gameObject.SetActive(true);
+        hpSlider.gameObject.SetActive(active);
     }
 
     public void TextUpdate(int wave, int coin, int remainEnemy)
