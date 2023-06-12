@@ -8,11 +8,9 @@ public class TowerBuild : MonoBehaviour
     [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private int price;
     public Vector3 towerPosition;
-    private InGameManager inGameManager;
 
     void Start()
     {
-        inGameManager = InGameManager.Instance;
     }
 
     void Update()
@@ -24,7 +22,7 @@ public class TowerBuild : MonoBehaviour
     {
         if (active)
         {
-            price = 15 * ((inGameManager.waveManager.currentWave / 5) + 1) * (inGameManager.subTowerCount + 1);
+            price = 15 * ((InGameManager.Instance.waveManager.currentWave / 5) + 1) * (InGameManager.Instance.subTowerCount + 1);
             priceText.text = $"¨Ï {price}";
         }
         gameObject.SetActive(active);
@@ -32,10 +30,12 @@ public class TowerBuild : MonoBehaviour
 
     public void OnClickYesButton()
     {
+        var inGameManager = InGameManager.Instance;
         if (inGameManager.playCoin >= price)
         {
             inGameManager.playCoin -= price;
             inGameManager.SubTowerBuild(towerPosition);
+            TowerBuildActive(false);
         }
     }
 

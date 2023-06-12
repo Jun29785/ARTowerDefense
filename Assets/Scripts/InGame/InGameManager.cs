@@ -48,7 +48,12 @@ public class InGameManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) CoreBuild(new Vector3(-3, 2, 1));
-        if (Input.GetKeyDown(KeyCode.S)) SubTowerBuild(new Vector3(-2, 2, 1));
+        if (Input.GetKeyDown(KeyCode.S) && !isWave && isCoreBuild && subTowerCount < GameManager.Instance.maxSubTower)
+        {
+            // SubTower
+            canvas.towerBuild.towerPosition = new Vector3(-2, 2, 1);
+            canvas.towerBuild.TowerBuildActive(true);
+        }
         canvas.gameUI.HPUpdate(maxHp, currentHp);
         if (isWave)
         {
