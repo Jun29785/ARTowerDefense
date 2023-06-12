@@ -6,6 +6,7 @@ public class SubTower : MonoBehaviour
 {
     public Transform targetEnemy;
     private int enemyLayer;
+    [SerializeField] Transform FirePos;
 
     private int range = 3;
 
@@ -44,7 +45,7 @@ public class SubTower : MonoBehaviour
 
     void AttackFunc()
     {
-        InGameManager.Instance.SubTowerAttack(targetEnemy);
+        InGameManager.Instance.SubTowerAttack(FirePos);
     }
 
     void GetTargetEnemy()

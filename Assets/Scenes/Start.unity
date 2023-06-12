@@ -414,6 +414,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneController: {fileID: 975952814}
   userDataManager: {fileID: 975952817}
+  rankUsers:
+  - Name: ABC
+    Wave: 99
+  - Name: sdf
+    Wave: 23
+  - Name: sdfa
+    Wave: 64
   maxSubTower: 3
 --- !u!4 &975952816
 Transform:
@@ -443,6 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userData:
+    ranks: []
     Coin: 10000
     UserHP: 1
     ClickDamage: 1

@@ -114,6 +114,7 @@ public class InGameManager : MonoBehaviour
 
     IEnumerator StartWave()
     {
+        canvas.towerBuild.TowerBuildActive(false);
         canvas.waveNotice.WaveNoticeText(waveManager.currentWave);
         canvas.waveNotice.WaveNoticeActive(true);
         yield return new WaitForSeconds(1.5f);
@@ -141,7 +142,7 @@ public class InGameManager : MonoBehaviour
         GameObject obj = Instantiate(bulletPrefab);
         obj.transform.position = tower.position;
         obj.TryGetComponent<Bullet>(out Bullet bullet);
-        bullet.target = tower.GetComponent<SubTower>().targetEnemy;
+        bullet.target = tower.parent.GetComponent<SubTower>().targetEnemy;
     }
 
     void EnemySpawn()
@@ -160,5 +161,15 @@ public class InGameManager : MonoBehaviour
     {
         objectSpawnManager.enemyPool.Release(enemy);
         currentHp--;
+        if (currentHp <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    void GameOver()
+    {
+        isWave = false;
+        canvas.gameOverUI.GameOverActive();
     }
 }

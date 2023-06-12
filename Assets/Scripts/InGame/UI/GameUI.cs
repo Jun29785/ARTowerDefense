@@ -27,7 +27,7 @@ public class GameUI : MonoBehaviour
 
     public void TextUpdate(int wave, int coin, int remainEnemy)
     {
-        waveText.text = $"Wave {wave}";
+        waveText.text = $"웨이브 {wave}";
         coinText.text = $"ⓒ {coin}";
         remainEnemyText.text = $"남은 적 : {remainEnemy}";
     }

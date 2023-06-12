@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public SceneController sceneController;
     public UserDataManager userDataManager;
 
-    public List<RankData> users;
+    public List<RankData> rankUsers;
 
     public int maxSubTower = 3;
 
@@ -18,21 +18,27 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
+    public void SortRank()
+    {
+        rankUsers.Sort((a, b) => b.Wave.CompareTo(a.Wave));
+    }
 }
 
+[System.Serializable]
 public class RankData
 {
     public string Name;
-    public int FinalWave;
+    public int Wave;
 
     public RankData()
     {
 
     }
 
-    public RankData(string name, int finalWave)
+    public RankData(string name, int wave)
     {
         Name = name;
-        FinalWave = finalWave;
+        Wave = wave;
     }
 }
