@@ -27,7 +27,7 @@ public class GameOverUI : MonoBehaviour
 
         if (user.ranks.Count > 0)
         {
-            if (user.ranks[user.ranks.Count - 1].Wave <= InGameManager.Instance.waveManager.currentWave)
+            if (user.ranks.Count < 5 || user.ranks[user.ranks.Count - 1].Wave <= InGameManager.Instance.waveManager.currentWave)
             {
                 rankRegister.gameObject.SetActive(true);
             }

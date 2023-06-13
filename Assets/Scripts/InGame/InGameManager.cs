@@ -174,6 +174,10 @@ public class InGameManager : MonoBehaviour
     void GameOver()
     {
         isWave = false;
+        foreach(Transform enemy in objectSpawnManager.enemyObjParent)
+        {
+            Destroy(enemy.gameObject);
+        }
         canvas.gameOverUI.GameOverActive();
     }
 }
