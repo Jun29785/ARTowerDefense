@@ -61,6 +61,7 @@ public class InGameManager : MonoBehaviour
             if (waveManager.remainEnemy <= 0 && objectSpawnManager.enemyObjParent.childCount == 0)
             {
                 isWave = false;
+                isSubTower = true;
                 canvas.gameUI.GameUIActive(false);
                 canvas.nextWaveButton.NextWaveActive(true);
                 ARActive(true);
