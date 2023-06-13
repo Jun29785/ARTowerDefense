@@ -22,6 +22,7 @@ public class GameOverUI : MonoBehaviour
     {
         var user = GameManager.Instance.userDataManager.userData;
         gameObject.SetActive(true);
+        GameManager.Instance.userDataManager.userData.Coin += InGameManager.Instance.playCoin;
         waveText.text = $"{InGameManager.Instance.waveManager.currentWave} ¿þÀÌºê";
         coinText.text = $"+ ¨Ï {InGameManager.Instance.playCoin}";
 
@@ -37,6 +38,8 @@ public class GameOverUI : MonoBehaviour
             }
         }
         else rankRegister.gameObject.SetActive(true);
+        GameManager.Instance.SortRank();
+        GameManager.Instance.userDataManager.SaveData();
     }
 
     public void RegisterRank()
