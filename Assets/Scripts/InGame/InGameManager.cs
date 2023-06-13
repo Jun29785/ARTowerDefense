@@ -24,6 +24,7 @@ public class InGameManager : MonoBehaviour
     [Header("Game")]
     public bool isCoreBuild = false;
     public bool isWave = false;
+    public bool isSubTower = false;
     public int maxHp;
     public int currentHp = 10;
     public int playCoin;
@@ -107,6 +108,7 @@ public class InGameManager : MonoBehaviour
     public void GameInitialize()
     {
         waveManager.currentWave = 0;
+        isSubTower = false;
         subTowerCount = 0;
         currentHp = maxHp;
         GameManager.Instance.maxSubTower = GameManager.Instance.userDataManager.userData.SubTowerAmount + 2;
@@ -128,6 +130,7 @@ public class InGameManager : MonoBehaviour
     void WaveStart()
     {
         ARActive(false);
+        isSubTower = false;
         waveManager.currentWave++;
         if (waveManager.currentWave % 5 == 0)
         {

@@ -11,7 +11,7 @@ public class SubTower : MonoBehaviour
     private int range = 3;
 
     private float curDelay = 0f;
-    private float maxDuration = 0.7f;
+    [SerializeField] private float maxDuration = 2.5f;
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class SubTower : MonoBehaviour
 
     void Update()
     {
-        if (targetEnemy == null)
+        if (targetEnemy == null || !targetEnemy.gameObject.activeSelf)
         {
             GetTargetEnemy();
         }

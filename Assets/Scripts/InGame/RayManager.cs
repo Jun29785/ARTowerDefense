@@ -36,7 +36,7 @@ public class RayManager : MonoBehaviour
                     {
                         inGameManager.canvas.coreBuild.ActiveWindow(hits[0].pose.position);
                     }
-                    if(!inGameManager.isWave && inGameManager.isCoreBuild && inGameManager.subTowerCount <= GameManager.Instance.maxSubTower)
+                    if(inGameManager.isSubTower && inGameManager.subTowerCount <= GameManager.Instance.maxSubTower)
                     {
                         // SubTower
                         inGameManager.canvas.towerBuild.towerPosition = hits[0].pose.position;

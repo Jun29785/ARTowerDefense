@@ -56,6 +56,6 @@ public class ObjectSpawnManager : MonoBehaviour
         enemy.transform.position = pos;
         enemy.transform.parent = enemyObjParent;
         enemy.speed = ((InGameManager.Instance.waveManager.currentWave / 5) + 1) * baseEnemySpeed;
-        enemy.HP = InGameManager.Instance.waveManager.currentWave * 3;
+        enemy.HP = (InGameManager.Instance.waveManager.currentWave / 3) + 2;
     }
 }

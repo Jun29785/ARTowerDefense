@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     public SceneController sceneController;
     public UserDataManager userDataManager;
 
-    public List<RankData> rankUsers;
-
     public int maxSubTower = 3;
 
     private void Awake()
@@ -21,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     public void SortRank()
     {
-        rankUsers.Sort((a, b) => b.Wave.CompareTo(a.Wave));
+        userDataManager.userData.ranks.Sort((a, b) => b.Wave.CompareTo(a.Wave));
     }
 }
 

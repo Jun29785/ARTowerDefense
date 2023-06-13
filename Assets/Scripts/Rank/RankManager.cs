@@ -27,7 +27,7 @@ public class RankManager : MonoBehaviour
 
     void SetRankObject()
     {
-        List<RankData> ranks = GameManager.Instance.rankUsers;
+        List<RankData> ranks = GameManager.Instance.userDataManager.userData.ranks;
         
         foreach(Transform rank in rankParent)
         {

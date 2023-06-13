@@ -10,38 +10,46 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] private TMP_InputField rankRegister;
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+
     }
 
     public void GameOverActive()
     {
+        var user = GameManager.Instance.userDataManager.userData;
         gameObject.SetActive(true);
         waveText.text = $"{InGameManager.Instance.waveManager.currentWave} ¿þÀÌºê";
         coinText.text = $"+ ¨Ï {InGameManager.Instance.playCoin}";
 
-        if (GameManager.Instance.rankUsers[GameManager.Instance.rankUsers.Count-1].Wave  <= InGameManager.Instance.waveManager.currentWave)
+        if (user.ranks.Count > 0)
         {
-            rankRegister.gameObject.SetActive(true);
+            if (user.ranks[user.ranks.Count - 1].Wave <= InGameManager.Instance.waveManager.currentWave)
+            {
+                rankRegister.gameObject.SetActive(true);
+            }
+            else
+            {
+                rankRegister.gameObject.SetActive(false);
+            }
         }
-        else
-        {
-            rankRegister.gameObject.SetActive(false);
-        }
+        else rankRegister.gameObject.SetActive(true);
     }
 
     public void RegisterRank()
     {
+        var gm = GameManager.Instance;
         if (rankRegister.text.Length == 3)
         {
             RankData rank = new RankData(rankRegister.text, InGameManager.Instance.waveManager.currentWave);
-            GameManager.Instance.rankUsers.Add(rank);
-            GameManager.Instance.SortRank();
+            gm.userDataManager.userData.ranks.Add(rank);
+            gm.SortRank();
+            gm.userDataManager.SaveData();
             rankRegister.gameObject.SetActive(false);
+
         }
     }
 

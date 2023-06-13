@@ -39,6 +39,7 @@ public class EnemyObject : MonoBehaviour
 
     void GetHit()
     {
+        Debug.Log("hit");
         HP -= GameManager.Instance.userDataManager.userData.ClickDamage;
         if (HP <= 0)
         {
