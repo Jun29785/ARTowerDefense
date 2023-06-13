@@ -41,6 +41,7 @@ public class RayManager : MonoBehaviour
                         // SubTower
                         inGameManager.canvas.towerBuild.towerPosition = hits[0].pose.position;
                         inGameManager.canvas.towerBuild.TowerBuildActive(true);
+                        inGameManager.ARActive(false);
                     }
                 }
             }

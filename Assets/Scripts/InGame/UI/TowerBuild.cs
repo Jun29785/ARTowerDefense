@@ -37,6 +37,7 @@ public class TowerBuild : MonoBehaviour
             inGameManager.SubTowerBuild(towerPosition);
             inGameManager.canvas.gameUI.TextUpdate(inGameManager.waveManager.currentWave, inGameManager.playCoin, 0);
             TowerBuildActive(false);
+            inGameManager.ARActive(true);
         }
         else
         {

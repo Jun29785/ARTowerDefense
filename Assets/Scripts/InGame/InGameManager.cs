@@ -100,7 +100,7 @@ public class InGameManager : MonoBehaviour
         subTowerCount++;
     }
 
-    void ARActive(bool active)
+    public void ARActive(bool active)
     {
         GetComponent<RayManager>().arPlaneManager.SetTrackablesActive(active);
         GetComponent<RayManager>().arPlaneManager.enabled = active;
